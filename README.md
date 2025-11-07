@@ -121,7 +121,9 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 
 ---
 
-## 🧪 Pruebas con Postman (Creación de Usuarios)
+## 🧪 Generar usuarios con Postman (Creación de Usuarios)
+
+Por el momento los usuarios solo se podran crear desde Postman.
 
 Para probar el registro de usuarios desde Postman, sigue los siguientes pasos:
 
@@ -137,10 +139,10 @@ Para probar el registro de usuarios desde Postman, sigue los siguientes pasos:
 
    ```json
    {
-     "nombre": "Juan Pérez",
-     "email": "juanperez@example.com",
-     "password": "123456",
-     "rol": "ADMIN"
+     "usuario": "cgomez1",
+     "clave": "123456",
+     "nombre": "Carlos Gomez",
+     "rol": "Soporte IT"
    }
    ```
 6. Haz clic en **Send** para enviar la petición.
@@ -149,11 +151,10 @@ Para probar el registro de usuarios desde Postman, sigue los siguientes pasos:
 
 ```json
 {
-  "id": 1,
-  "nombre": "Juan Pérez",
-  "email": "juanperez@example.com",
-  "rol": "ADMIN",
-  "mensaje": "Usuario registrado exitosamente"
+  "id": 6,
+  "usuario": "cgomez1",
+  "clave": "123456",
+  "rol": "Soporte IT",
 }
 ```
 
@@ -161,7 +162,6 @@ Para probar el registro de usuarios desde Postman, sigue los siguientes pasos:
 
 * Asegúrate de que el backend esté corriendo en el puerto **8080** antes de hacer la petición.
 * Si usas otro puerto o nombre de endpoint, actualiza la URL en Postman.
-* Puedes probar otros endpoints como `GET /api/usuarios` para listar usuarios ya registrados.
 
 ---
 
