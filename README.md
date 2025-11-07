@@ -82,7 +82,8 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/veterinaria
    spring.datasource.username=root
-   spring.datasource.password=tu_contraseña
+   spring.datasource.password=
+   # Cambiar usuario y contraseña según la configuración de tu MySQL local
    ```
 3. Ejecuta el proyecto con el comando:
 
@@ -117,6 +118,50 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 * Programación de citas.
 * Conexión en tiempo real con la base de datos.
 * Interfaz moderna e intuitiva desarrollada en Angular.
+
+---
+
+## 🧪 Pruebas con Postman (Creación de Usuarios)
+
+Para probar el registro de usuarios desde Postman, sigue los siguientes pasos:
+
+1. Abre **Postman** y crea una nueva solicitud (**Request**).
+2. Selecciona el método **POST**.
+3. En la barra de dirección, escribe el endpoint:
+
+   ```
+   http://localhost:8080/api/auth/register
+   ```
+4. En la pestaña **Body**, selecciona la opción **raw** y el tipo **JSON**.
+5. Ingresa un cuerpo de ejemplo como este:
+
+   ```json
+   {
+     "nombre": "Juan Pérez",
+     "email": "juanperez@example.com",
+     "password": "123456",
+     "rol": "ADMIN"
+   }
+   ```
+6. Haz clic en **Send** para enviar la petición.
+
+### 🟢 Respuesta Exitosa (Ejemplo)
+
+```json
+{
+  "id": 1,
+  "nombre": "Juan Pérez",
+  "email": "juanperez@example.com",
+  "rol": "ADMIN",
+  "mensaje": "Usuario registrado exitosamente"
+}
+```
+
+### ⚠️ Notas Importantes
+
+* Asegúrate de que el backend esté corriendo en el puerto **8080** antes de hacer la petición.
+* Si usas otro puerto o nombre de endpoint, actualiza la URL en Postman.
+* Puedes probar otros endpoints como `GET /api/usuarios` para listar usuarios ya registrados.
 
 ---
 
