@@ -1,0 +1,26 @@
+<h2>📬 Contáctanos</h2>
+<form (ngSubmit)="enviarMensaje()" #form="ngForm">
+  <input type="text" [(ngModel)]="contacto.nombre" name="nombre" placeholder="Tu nombre" required />
+  <input
+    type="email"
+    [(ngModel)]="contacto.correo"
+    name="correo"
+    placeholder="Tu correo"
+    required
+  />
+  <input type="text" [(ngModel)]="contacto.asunto" name="asunto" placeholder="Asunto" required />
+  <textarea
+    [(ngModel)]="contacto.mensaje"
+    name="mensaje"
+    placeholder="Escribe tu mensaje"
+    rows="4"
+    required
+  ></textarea>
+  <button type="submit" [disabled]="form.invalid">Enviar mensaje</button>
+</form>
+
+<small class="text-muted d-block mt-3 text-center">
+  🕐 Horario de atención: Lunes a sábado de 9:00 a.m. a 6:00 p.m.<br />
+  📍 Dirección: Av. Joaquín Bernal 494, Lince<br />
+  📞 WhatsApp: +51 987 654 321
+</small>

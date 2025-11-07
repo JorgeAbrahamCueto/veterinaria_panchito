@@ -1,0 +1,46 @@
+<div class="container py-4">
+  <h3 class="text-center mb-4">📦 Pedidos realizados</h3>
+
+  <div class="mb-3 text-start">
+    <a routerLink="/acceso-veterinario" class="btn btn-outline-secondary">
+      ← Volver al panel
+    </a>
+  </div>
+
+  <table class="table table-bordered table-hover" *ngIf="pedidos.length > 0; else sinPedidos">
+    <thead class="table-light">
+      <tr>
+        <th>Cliente</th>
+        <th>Correo</th>
+        <th>Dirección</th>
+        <th>Comprobante</th>
+        <th>Productos</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos; let i = index">
+        <td>{{ pedido.cliente.nombre }}</td>
+        <td>{{ pedido.cliente.correo }}</td>
+        <td>{{ pedido.cliente.direccion }}</td>
+        <td>{{ pedido.comprobante }}</td>
+        <td>
+          <ul class="list-unstyled mb-0">
+            <li *ngFor="let producto of pedido.productos">
+              🛒 {{ producto.nombre }} - S/ {{ producto.precio }}
+            </li>
+          </ul>
+        </td>
+        <td>{{ pedido.fecha | date:'short' }}</td>
+        <td>
+          <button class="btn btn-sm btn-danger" (click)="eliminarPedido(i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #sinPedidos>
+    <p class="text-center text-muted">No hay pedidos registrados.</p>
+  </ng-template>
+</div>

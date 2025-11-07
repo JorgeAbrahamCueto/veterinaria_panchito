@@ -1,0 +1,146 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4">Nuestra Tienda Veterinaria 🛒</h2>
+  <div class="row">
+    <!-- Catálogo -->
+    <div class="col-md-8">
+      <div class="row g-4">
+        <div class="col-md-6" *ngFor="let producto of productos">
+          <div class="card producto-card h-100">
+            <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre" />
+            <div class="card-body">
+              <h5 class="card-title">{{ producto.nombre }}</h5>
+              <p class="card-text">{{ producto.descripcion }}</p>
+              <p class="precio">S/ {{ producto.precio.toFixed(2) }}</p>
+              <button class="btn btn-outline-primary" (click)="agregarAlCarrito(producto)">
+                Agregar al carrito
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrito y compra -->
+    <div class="col-md-4">
+      <h4>🧺 Tu carrito</h4>
+      <div *ngIf="carrito.length === 0">Aún no has agregado productos.</div>
+      <ul class="list-group mb-3">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          *ngFor="let item of carrito; let i = index"
+        >
+          {{ item.nombre }} - S/ {{ item.precio.toFixed(2) }}
+          <button class="btn btn-sm btn-danger" (click)="eliminarDelCarrito(i)">✖</button>
+        </li>
+      </ul>
+
+      <h5 class="mt-4">🧾 Información de compra</h5>
+      <form (ngSubmit)="mostrarPago = true" #form="ngForm">
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre completo"
+            [(ngModel)]="nombreCliente"
+            name="nombre"
+            required
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Correo electrónico"
+            [(ngModel)]="correoCliente"
+            name="correo"
+            required
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Dirección de entrega"
+            [(ngModel)]="direccionCliente"
+            name="direccion"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-warning w-100"
+          [disabled]="form.invalid || mostrarPago"
+        >
+          Continuar con la compra
+        </button>
+      </form>
+
+      <!-- Sección de pago -->
+      <div *ngIf="mostrarPago" class="mt-4">
+        <h5>📄 Tipo de comprobante</h5>
+        <div class="mb-2">
+          <select class="form-select" [(ngModel)]="tipoComprobante" name="comprobante" required>
+            <option value="" disabled selected>Selecciona comprobante</option>
+            <option value="boleta">Boleta</option>
+            <option value="factura">Factura</option>
+          </select>
+        </div>
+
+        <h5 class="mt-3">💳 Datos de tarjeta</h5>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Número de tarjeta"
+            [value]="tarjeta.numero"
+            (input)="formatearTarjeta($event)"
+            required
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre en la tarjeta"
+            [(ngModel)]="tarjeta.nombre"
+            name="nombreTarjeta"
+            required
+          />
+        </div>
+        <div class="d-flex gap-2 mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="MM/AA"
+            [value]="tarjeta.expiracion"
+            (input)="formatearExpiracion($event)"
+            required
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="CVV"
+            [(ngModel)]="tarjeta.cvv"
+            name="cvv"
+            required
+          />
+        </div>
+
+        <button
+          class="btn btn-success w-100 mt-2"
+          (click)="procesarCompra()"
+          [disabled]="
+            carrito.length === 0 ||
+            tarjeta.numero.length < 19 ||
+            !tarjeta.nombre ||
+            tarjeta.expiracion.length < 5 ||
+            tarjeta.cvv.length < 3 ||
+            !tipoComprobante
+          "
+        >
+          Confirmar pago
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

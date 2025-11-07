@@ -1,0 +1,59 @@
+.servicios-container {
+  background-color: #f9fdfc;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.servicio-card {
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #4e342e;
+}
+
+.estadisticas-container {
+  background-color: #f0fdf4;
+}
+
+.stat-box h4 {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.testimonios-container {
+  background-color: #f8f9fa;
+}
+
+.testimonial-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid #2e7d32;
+}
+
+.testimonial {
+  font-size: 1rem;
+  color: #4e342e;
+  border-left: 4px solid #2e7d32;
+}

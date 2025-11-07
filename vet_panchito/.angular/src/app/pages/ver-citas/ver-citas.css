@@ -1,0 +1,20 @@
+table {
+  font-size: 15px;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  vertical-align: middle;
+}
+
+button {
+  font-size: 14px;
+}
+
+a.btn {
+  font-size: 14px;
+  padding: 8px 16px;
+}

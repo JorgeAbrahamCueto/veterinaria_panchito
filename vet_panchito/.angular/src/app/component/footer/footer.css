@@ -1,0 +1,32 @@
+.footer {
+  background-color: #A3F7ED;
+  color: #333;
+  padding: 30px 20px;
+  font-size: 14px;
+}
+
+.footer h5 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer a.social {
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.footer a.social:hover {
+  text-decoration: underline;
+}
+
+.footer .twitter { color: #1DA1F2; }
+.footer .instagram { color: #E1306C; }
+.footer .facebook { color: #1877F2; }
+.footer .youtube { color: #FF0000; }
+
+.footer hr {
+  margin: 20px 0;
+  border-color: #ccc;
+}

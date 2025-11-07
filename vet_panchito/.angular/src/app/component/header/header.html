@@ -1,0 +1,49 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" routerLink="/">
+        <img src="/img/Logo.png" alt="Logo Panchito Veterinaria" width="40" height="40" class="me-2, logo-img me-2">
+      </a>
+
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú colapsable -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Menú principal -->
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/servicio">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/equipo">Nuestro Equipo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/adopcion">Adopciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tienda">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/reserva">Reservar Cita</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contacto">Contacto</a>
+          </li>
+        </ul>
+
+        <!-- Enlace a la intranet alineado a la derecha -->
+        <div class="d-flex">
+          <a class="btn btn-outline-success" routerLink="/acceso-veterinario">Acceso Veterinarios</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

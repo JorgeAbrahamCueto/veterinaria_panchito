@@ -1,0 +1,38 @@
+/* estilos generales para la página de acceso veterinario */
+.login-box, .panel-box {
+  max-width: 400px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* estilos para los títulos */
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* estilos para los botones */
+button {
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* estilos para los enlaces de la lista */
+.list-group-item a {
+  text-decoration: none;
+  color: #198754;
+  font-weight: 500;
+  cursor: pointer; /* 👈 Esto activa la manito */
+  display: block;
+  padding: 8px 0;
+}
+
+/* estilos para los enlaces al pasar el cursor */
+.list-group-item a:hover {
+  text-decoration: underline;
+  color: #145c32;
+}

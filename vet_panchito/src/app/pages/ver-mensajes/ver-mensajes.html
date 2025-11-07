@@ -1,0 +1,55 @@
+<div class="container py-4">
+  <h3 class="text-center mb-4">📨 Mensajes recibidos</h3>
+
+  <div class="mb-3 text-start">
+    <a routerLink="/acceso-veterinario" class="btn btn-outline-secondary">
+      ← Volver al panel
+    </a>
+  </div>
+
+  <table class="table table-bordered table-hover" *ngIf="mensajes.length > 0; else sinMensajes">
+    <thead class="table-light">
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Asunto</th>
+        <th>Mensaje</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let mensaje of mensajes; let i = index">
+        <tr>
+          <td>{{ mensaje.nombre }}</td>
+          <td>{{ mensaje.correo }}</td>
+          <td>{{ mensaje.asunto }}</td>
+          <td>{{ mensaje.contenido }}</td>
+          <td>{{ mensaje.fecha | date:'short' }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary me-1" (click)="mostrarRespuesta(i)">Responder</button>
+            <button class="btn btn-sm btn-danger" (click)="eliminarMensaje(i)">Eliminar</button>
+          </td>
+        </tr>
+
+        <!-- Formulario de respuesta -->
+        <tr *ngIf="respuestaIndex === i">
+          <td colspan="6">
+            <textarea
+              [(ngModel)]="respuestaTexto"
+              rows="3"
+              class="form-control mb-2"
+              placeholder="Escribe tu respuesta..."
+            ></textarea>
+            <button class="btn btn-success btn-sm" (click)="simularRespuesta(i)">Enviar respuesta</button>
+            <button class="btn btn-outline-secondary btn-sm ms-2" (click)="cancelarRespuesta()">Cancelar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <ng-template #sinMensajes>
+    <p class="text-center text-muted">No hay mensajes registrados.</p>
+  </ng-template>
+</div>

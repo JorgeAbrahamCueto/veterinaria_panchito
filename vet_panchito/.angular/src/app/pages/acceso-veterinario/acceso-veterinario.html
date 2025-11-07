@@ -1,0 +1,41 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4">🔐 Acceso Veterinarios</h2>
+
+  <!-- Login -->
+  <div *ngIf="!accesoPermitido" class="login-box mx-auto">
+    <form (ngSubmit)="ingresar()" #form="ngForm">
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Usuario"
+        [(ngModel)]="usuario"
+        name="usuario"
+        required
+      />
+      <input
+        type="password"
+        class="form-control mb-3"
+        placeholder="Contraseña"
+        [(ngModel)]="clave"
+        name="clave"
+        required
+      />
+      <button type="submit" class="btn btn-success w-100" [disabled]="form.invalid">
+        Ingresar
+      </button>
+    </form>
+    <div class="text-danger mt-2 text-center">{{ error }}</div>
+  </div>
+
+  <!-- Panel -->
+  <div *ngIf="accesoPermitido" class="panel-box mx-auto text-center">
+    <h4 class="mb-3">👨‍⚕️ Bienvenido, {{ nombreVeterinario }}</h4>
+    <ul class="list-group">
+      <li class="list-group-item"><a routerLink="/admin/citas">📅 Ver citas</a></li>
+      <li class="list-group-item"><a routerLink="/admin/mensajes">📨 Ver mensajes</a></li>
+      <li class="list-group-item"><a routerLink="/admin/pedidos">🛒 Ver pedidos</a></li>
+      <li class="list-group-item"><a routerLink="/admin/historias">📋 Historias clínicas</a></li>
+    </ul>
+    <button class="btn btn-outline-danger mt-3" (click)="cerrarSesion()">Cerrar sesión</button>
+  </div>
+</div>

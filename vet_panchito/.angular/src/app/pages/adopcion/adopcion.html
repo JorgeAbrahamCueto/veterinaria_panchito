@@ -1,0 +1,68 @@
+<!-- Encabezado -->
+<div class="adopciones-header text-center py-5">
+  <h2>Adopta, cambia una vida 🐾</h2>
+  <p>Conoce a nuestros engreídos que esperan un hogar lleno de amor. Cada adopción es una historia que comienza con un sí.</p>
+</div>
+
+<!-- Galería de mascotas -->
+<div class="row g-4 justify-content-center">
+  <!-- Mascota 1 -->
+  <div class="col-md-4">
+    <div class="card mascota-card h-100">
+      <img src="/img/luna.png" class="card-img-top" alt="Luna">
+      <div class="card-body">
+        <h5 class="card-title">Luna</h5>
+        <p class="card-text">Perrita mestiza, 2 años, juguetona y muy cariñosa. Ideal para familias con niños.</p>
+        <button (click)="scrollToFormulario('Luna')" class="btn btn-success">Quiero Adoptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mascota 2 -->
+  <div class="col-md-4">
+    <div class="card mascota-card h-100">
+      <img src="/img/max.png" class="card-img-top" alt="Max">
+      <div class="card-body">
+        <h5 class="card-title">Max</h5>
+        <p class="card-text">Gatito rescatado, 1 año, tranquilo y sociable. Busca un hogar seguro y paciente.</p>
+        <button (click)="scrollToFormulario('Max')" class="btn btn-success">Quiero Adoptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Formulario de adopción -->
+<div #formulario class="py-5">
+  <h3 class="text-center mb-4">Formulario de Adopción</h3>
+
+  <form class="container" (ngSubmit)="registrarAdopcion(form)" #form="ngForm">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required ngModel>
+    </div>
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo electrónico</label>
+      <input type="email" class="form-control" id="correo" name="correo" required ngModel>
+    </div>
+    <div class="mb-3">
+      <label for="mascota" class="form-label">Mascota que deseas adoptar</label>
+      <input type="text" class="form-control" id="mascota" name="mascota" required [(ngModel)]="mascotaSeleccionada">
+    </div>
+    <div class="mb-3">
+      <label for="mensaje" class="form-label">¿Por qué quieres adoptar?</label>
+      <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required ngModel></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+  </form>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmacionModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4">
+      <h5 class="modal-title">¡Solicitud enviada!</h5>
+      <p class="mt-2">Gracias por tu interés en adoptar. Pronto nos pondremos en contacto contigo 🐾</p>
+      <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>

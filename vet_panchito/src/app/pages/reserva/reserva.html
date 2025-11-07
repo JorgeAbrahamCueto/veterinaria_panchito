@@ -1,0 +1,52 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4">📅 Reserva tu cita veterinaria</h2>
+  <form (ngSubmit)="confirmarReserva()" #form="ngForm" class="row g-3 justify-content-center">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Tu nombre"
+             [(ngModel)]="cita.nombre" name="nombre" required />
+    </div>
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Nombre de tu mascota"
+             [(ngModel)]="cita.mascota" name="mascota" required />
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="cita.tipo" name="tipo" required>
+        <option value="" disabled selected>Tipo de mascota</option>
+        <option value="Perro">Perro</option>
+        <option value="Gato">Gato</option>
+        <option value="Conejo">Conejo</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="cita.motivo" name="motivo" required>
+        <option value="" disabled selected>Motivo de la cita</option>
+        <option value="Consulta">Consulta</option>
+        <option value="Vacunación">Vacunación</option>
+        <option value="Desparasitación">Desparasitación</option>
+        <option value="Control general">Control general</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <input type="date" class="form-control" [(ngModel)]="cita.fecha" name="fecha" required />
+    </div>
+    <div class="col-md-6">
+      <input type="time" class="form-control" [(ngModel)]="cita.hora" name="hora" required />
+    </div>
+    <div class="col-md-12">
+      <input type="text" class="form-control" placeholder="Teléfono o correo"
+             [(ngModel)]="cita.contacto" name="contacto" required />
+    </div>
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">
+        Reservar cita
+      </button>
+    </div>
+    <div class="col-md-12 text-center mt-2">
+      <small class="text-muted">
+        🕒 Recuerda que el paciente debe llegar al menos <strong>30 minutos antes</strong>
+        de la hora reservada para su atención.
+      </small>
+    </div>
+  </form>
+</div>

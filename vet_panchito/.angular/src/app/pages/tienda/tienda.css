@@ -1,0 +1,16 @@
+.tienda-header {
+  background-color: #f8f9fa;
+}
+
+.producto-card img {
+  height: 220px;
+  object-fit: contain;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.precio {
+  font-weight: bold;
+  color: #198754;
+  margin-top: 10px;
+}
